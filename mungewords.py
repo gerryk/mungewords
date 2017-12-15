@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-import sys
-
 class WordList():
     seed_words = []
     def __init__(self,words):
@@ -37,14 +35,17 @@ class WordList():
                 word = new
                 yield word
 
-if len(sys.argv) < 2:
-    print "No words provided..."
-    exit(1)
-o = WordList(sys.argv[1:])
-for w in o.seed_words:
-    for p in o.upper_lower(w):
-        print p
-    for p in o.l337speak(w):
-        print p
+def main():
+    import sys
+    if len(sys.argv) < 2:
+        print "No words provided..."
+        exit(1)
+    o = WordList(sys.argv[1:])
+    for w in o.seed_words:
+        for p in o.upper_lower(w):
+            print p
+        for p in o.l337speak(w):
+            print p
 
-
+if __name__ == "__main__":
+    main()
